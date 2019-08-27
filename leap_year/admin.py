@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from leap_year.models import LeapYear
+
+admin.site.register(LeapYear)
