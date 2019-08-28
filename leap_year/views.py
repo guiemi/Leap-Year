@@ -10,4 +10,11 @@ def index(request):
     }
     return render(request, 'leap_year/index.html', context)
 
+def after_century(request):
+    is_leap = LeapYear.objects.order_by("id")
 
+    context = {
+        'is_leap': is_leap,
+    }
+
+    return render(request, 'leap_year/index.html', context)
