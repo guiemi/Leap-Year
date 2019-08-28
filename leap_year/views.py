@@ -21,9 +21,8 @@ def addYear(request):
 
     print(request.POST['year'])
     
-    if form.is_valid():
-        new_year = LeapYear(number=request.POST['text'])
-        # new_year = LeapYear(=request.POST['text'])
+    if form.is_valid():        
+        new_year = LeapYear(year=request.POST['year'])
         new_year.save()
 
 
