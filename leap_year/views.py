@@ -1,7 +1,10 @@
 from django.shortcuts import render
+from leap_year.models import LeapYear
+
 
 def index(request):
-    context = {
-        
-    }
-    return render(request, 'leap_year/index.html', context)
+    years = LeapYear.objects.order_by("id")
+
+    context = {"years": years}
+    return render(request, "leap_year/index.html", context)
+
