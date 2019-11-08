@@ -8,6 +8,7 @@ body {
 #content {
 	background: beige;
 	padding: 25px;
+	border-radius: 5px;
 }
 #content > h2 {
 	font-size: 18px;
@@ -21,8 +22,9 @@ body {
 	margin-top: 20px;
 }
 .todo-completed {
-	text-decoration: line-through;
-	background: rgba(149, 165, 166, .3);
+	/* text-decoration: line-through; */
+	/* background: rgba(149, 165, 166, .3); */
+	background: greenyellow;
 }
 footer {
 	margin-top: 20px;

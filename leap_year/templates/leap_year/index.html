@@ -54,9 +54,11 @@
 					<ul class="list-group t20">
 						{% for year in years %}
 							{% if year.is_leap %}
+								<!-- {% url 'calculate' year %} -->
+								<li class="list-group-item todo-completed"> {% url 'calculate' year_id %} </li>
 								<li class="list-group-item todo-completed"> {{ year }} </li>
 							{% else %}
-								<li class="list-group-item"> {{ year }} </li>					
+								<!-- <li class="list-group-item"> {{ year }} </li>					 -->
 							{% endif %}
 						{% endfor %}
 					</ul>

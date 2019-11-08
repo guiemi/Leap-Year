@@ -15,6 +15,7 @@ def index(request):
     }
     return render(request, 'leap_year/index.html', context)
 
+
 @require_POST
 def addYear(request):
     form = LeapYearForm(request.POST)
@@ -25,5 +26,13 @@ def addYear(request):
         new_year = LeapYear(year=request.POST['year'])
         new_year.save()
 
-
     return redirect("index")
+
+def calculate(request, year_id):
+    year_id = LeapYear.objects.get(pk=year_id)
+    # is_leap = LeapYear.objects.order_by("id")
+    
+    if year_id > 2000:
+        year_id.is_leap = True
+        year_id.save()
+    return print(f"year_id: {year_id}")
