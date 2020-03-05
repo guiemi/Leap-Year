@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 from leap_year.models import LeapYear
 from leap_year.forms import LeapYearForm
@@ -28,11 +28,18 @@ def addYear(request):
 
     return redirect("index")
 
-def calculate(request, year_id):
-    year_id = LeapYear.objects.get(pk=year_id)
-    # is_leap = LeapYear.objects.order_by("id")
+def deleteYear(request, year_id):
+    years = get_object_or_404(LeapYear, pk=year_id)
+    years.delete()
+    return redirect("index")
+
+
+
+# def calculate(request, year_id):
+#     year_id = LeapYear.objects.get(pk=year_id)
+#     # is_leap = LeapYear.objects.order_by("id")
     
-    if year_id > 2000:
-        year_id.is_leap = True
-        year_id.save()
-    return print(f"year_id: {year_id}")
+#     if year_id > 2000:
+#         year_id.is_leap = True
+#         year_id.save()
+#     return print(f"year_id: {year_id}")

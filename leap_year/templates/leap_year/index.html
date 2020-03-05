@@ -34,31 +34,27 @@
 						</div>
 					</form>
 
-					<!-- <div class="row t10">
+					<div class="row t10">
 						<div class="col-lg-12">
 							<div class="btn-toolbar">
+								<div class="btn-group"></div>
 								<div class="btn-group">
-									<button type="button" class="btn btn-warning">
-										<i class="glyphicon glyphicon-trash"></i> DELETE COMPLETED
-									</button>
-								</div>
-								<div class="btn-group">
-									<button type="button" class="btn btn-warning">
-										<i class="glyphicon glyphicon-trash"></i> DELETE ALL
+									<button type="button" class="btn btn-warning" >
+										<i class="glyphicon glyphicon-trash">{% url 'deleteYear' %}</i>
 									</button>
 								</div>
 							</div>
 						</div>
-					</div> -->
+					</div>
 
 					<ul class="list-group t20">
 						{% for year in years %}
 							{% if year.is_leap %}
-								<!-- {% url 'calculate' year %} -->
+								{% url 'calculate' year %}
 								<li class="list-group-item todo-completed"> {% url 'calculate' year_id %} </li>
 								<li class="list-group-item todo-completed"> {{ year }} </li>
 							{% else %}
-								<!-- <li class="list-group-item"> {{ year }} </li>					 -->
+								<li class="list-group-item"> {{ year }} </li>					
 							{% endif %}
 						{% endfor %}
 					</ul>
